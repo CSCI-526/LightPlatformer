@@ -478,6 +478,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlinkingLightSource (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3619771127138591876, guid: 7da59f54b676e427a8571bd70f42d9d0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3778086020012141340, guid: 7da59f54b676e427a8571bd70f42d9d0, type: 3}
       propertyPath: waitTime
       value: 1
