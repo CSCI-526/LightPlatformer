@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb;
     bool isGrounded;
-    bool isDashing;
+    public bool isDashing = false;
     bool isCoolDownReady = true;
     float moveX;
     float moveY;
@@ -20,9 +20,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashDuration = 1f;
     [SerializeField] private float dashCooldown = 1f;
+
+    PlayerLightTracker playerLightTracker;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerLightTracker = GetComponent<PlayerLightTracker>();
     }
 
     void Update()
@@ -77,6 +81,7 @@ public class PlayerController : MonoBehaviour
         private void StopDash()
         {
             isDashing = false;
+            playerLightTracker.UpdateCollision();
         }
         private void ResetCooldown()
         {

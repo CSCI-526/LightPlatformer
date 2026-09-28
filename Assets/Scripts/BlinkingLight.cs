@@ -6,6 +6,7 @@ public class BlinkingLight : MonoBehaviour
 {
     public Light2D light2D;
     public bool IsOn { get; private set; } = true;
+    public float waitTime = 0f;
 
     CircleCollider2D col;
 
@@ -17,6 +18,7 @@ public class BlinkingLight : MonoBehaviour
 
     IEnumerator Blink()
     {
+        yield return new WaitForSeconds(waitTime);
         while (true)
         {
             if (IsOn)

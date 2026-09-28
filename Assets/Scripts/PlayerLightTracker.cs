@@ -9,10 +9,15 @@ public class PlayerLightTracker : MonoBehaviour
 
     readonly List<Collider2D> lightsInside = new List<Collider2D>();
 
+    PlayerController playerController;
+
     void Awake()
     {
         if (collisionBox == null)
             Debug.LogWarning("PlayerLightTracker: Collision Box not assigned in the Inspector.");
+        
+        playerController = GetComponent<PlayerController>();
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -32,10 +37,10 @@ public class PlayerLightTracker : MonoBehaviour
         UpdateCollision();
     }
 
-    void UpdateCollision()
+    public void UpdateCollision()
     {
         if (collisionBox == null) return;
-        collisionBox.enabled = hasLantern || lightsInside.Count > 0;//collision box will be set to TRUE as long as player has the lantern
+        collisionBox.enabled = hasLantern || lightsInside.Count > 0 || playerController.isDashing;//collision box will be set to TRUE as long as player has the lantern
     }
     public void DropLantern() // reserved for lantern timer
     {

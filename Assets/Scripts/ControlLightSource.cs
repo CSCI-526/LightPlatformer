@@ -4,7 +4,7 @@ public class ControllableLight : MonoBehaviour
 {
     public float turnSpeed = 720f;
 
-    static readonly float[] anglesClockwise = { 0f, -90f, 180f, 90f };
+    public float[] anglesClockwise = { 0f, -90f, 180f, 90f };
 
     int currentIndex = 0;
     float targetAngle;
